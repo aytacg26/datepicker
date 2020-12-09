@@ -1,0 +1,285 @@
+.container {
+  background-color: cornsilk;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+i{
+  font-style: normal !important;
+}
+
+.datepicker-main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  max-width: 200px;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+
+.entry-area{
+  display:grid;
+  grid-template-columns: 170px 41px;
+  grid-template-rows: 1fr;
+}
+
+.calender-close{
+  display: grid;
+  align-items: center;
+  justify-items: flex-end;
+  padding-right: 6px;
+  z-index: 4;
+  cursor: pointer;
+}
+
+
+.date-picker-input {
+  width: 200px;
+  max-height: 30px;
+  border: 0.3px solid rgb(151, 151, 151);
+  border-radius: 8px;
+  outline: none;
+  padding: 5px 6px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.date-picker-window {
+  padding: 18px 6px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-items: center;
+  align-items: center;
+  background-color: #fff;
+  position: absolute;
+  max-width: inherit;
+  width: 200px;
+
+  overflow-y: auto;
+  top: 4px;
+  border: 0.3px solid rgb(151, 151, 151);
+  border-radius: 4px 4px 8px 8px;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: linear 0.33s;
+  transition-property: visibility, opacity, height;
+}
+
+.date-picker-window::-webkit-scrollbar {
+  width: 1px;
+}
+
+.picker-main-area {
+  display: flex;
+  padding: 4px 2px 3px 2px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 100%;
+  max-height: max-content;
+  width: 100%;
+}
+
+.year-display {
+  height: 25px;
+  padding: 3px;
+  width: 100%;
+  border-top: 0.2px solid #ff4500;
+  margin-bottom: 4px;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.hidden-input {
+  width: 100%;
+  border: 0 none;
+  outline: none 0;
+}
+
+.hidden-input:disabled{
+  background-color: #fff;
+}
+
+.months-display {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 38px);
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  align-items: center;
+  justify-items: center;
+  color:#656565
+}
+
+.months-display input[type="radio"] {
+  display: none;
+}
+
+.months-display label {
+  cursor: pointer;
+  font-size: 0.68em;
+  transition: all 0.4s;
+}
+
+.months-display label.checked{
+  /* background-color: #ff4500; */
+  color:#ff4500;
+  font-weight: bolder;
+  padding: 8px 6px 8px 6px;
+  border-radius: 40% 40% 0 50%;
+  box-shadow: 1px 1px 3px black;
+  border:0.8px solid #ff4500;
+}
+
+.months-display label.checked-long{
+  color:#ff4500;
+  border-bottom: 0.5px solid #ff4500;
+  font-weight: bolder;
+}
+
+.assign-today{
+  display: grid;
+  height: 18px;
+  width: 100%;
+  max-width: 100%;
+  max-height: 25px;
+  padding:2px;
+  border-top: 0.5px solid #ff4500;
+  grid-template-columns: 1fr 50px;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  font-size: 9px;
+  color:rgb(40, 40, 182);
+}
+
+#today{
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+
+.date-picker-input.focused {
+  border-bottom: 0px;
+  border-radius: 8px 8px 0 0;
+}
+
+.date-picker-window.focused {
+  height: max-content;
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0 1px 3px black;
+}
+
+.year-display > input{
+  text-align: center;
+ 
+}
+
+.year-display .icon{
+  cursor: pointer;
+}
+
+.icon{
+  font-size:1.34em;
+  font-weight: 600;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#ff4500;
+  
+}
+
+
+/*--Content Signs---*/
+.left-double::before{
+  content : '\00AB';
+}
+
+.right-double::before{
+  content:'\00BB';
+}
+
+.left-single::before{
+  content:'\2039';
+}
+
+.right-single::before{
+  content:'\203A';
+}
+
+.exclamation-mark::before{
+  content:'\0021';
+}
+
+.question-mark::before{
+  content:'\003F';
+}
+
+.dollar-sign::before{
+  content:'\0024';
+}
+
+.pound-sign::before{
+  content:'\00A3';
+}
+
+.euro-sign::before{
+  content:'\20AC';
+}
+
+.turkish-lira::before{
+  content:'\20BA';
+}
+
+.circle-close::before{
+  content:'\2BBF';
+}
+
+.box-italic-close::before{
+  content:'\01F5F5';
+}
+
+.box-close::before{
+  content:'\2BBD';
+}
+
+/*⯅*/
+.up-pointing::before{
+  content:'\2BC5'
+}
+
+/*⯆*/
+.down-pointing::before{
+  content:'\2BC6'
+}
+
+/*⯇*/
+.left-pointing::before{
+  content:'\2BC7'
+}
+
+/*⯈*/
+.right-pointing::before{
+  content:'\2BC8';
+}
+
+.calender::before{
+  content:'\01F4C5';
+}

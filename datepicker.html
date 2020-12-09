@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/datepicker.css" rel="stylesheet" />
+    <title>Date Picker</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="datepicker-main">
+            <div class="entry-area">
+                <input id="date-picker-input" class="date-picker-input" />
+                <span class="calender-close"><i class="calender"></i></span>
+            </div>
+            
+            <div id="date-picker-window" class="date-picker-window">
+                <div class="picker-main-area">
+                    <div class="year-display">
+                        <span class="icon" id="decrease-year"><i class="left-double"></i></span>
+                        <input type="text" id="year-value" class="hidden-input" disabled>
+                        <span class="icon" id="increase-year"><i class="right-double"></i></span>
+                      
+                    </div>
+                    <div class="months-display">
+
+                    </div>
+                    <div class="assign-today">
+                        <span></span>
+                        <span id="today">today</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div>Any content under datepicker</div>
+    </div>
+    <script src="/datepicker.js"></script>
+</body>
+
+</html>
