@@ -204,7 +204,9 @@ const defaultDate = ()=>{
 
 }
 
-
+const getSelectedMonth = ()=>{
+  
+}
 
 
 const windowDefaultYearInput = document.getElementById("year-value");
@@ -535,7 +537,7 @@ const checkSelectedOption = (opt)=>{
 
 
 
-option.forEach(op=>{
+option.forEach((op, index)=>{
    
   op.addEventListener("click", (e)=>{
 
@@ -543,9 +545,24 @@ option.forEach(op=>{
 
     if(e.target.nodeName==="LABEL"){
 
-      const currentYear = getCurrentYear()
+      const currentYear = getCurrentYear();
+      const currentMonth = setDefaultMonthIndex();
+      const selectedYear = getSelectedYear();
+      const isCurrentYear = currentYear === selectedYear;
 
-      checkSelectedOption(op);
+    
+
+      if(settings.currentYearConstraint){
+   
+        if(index>=currentMonth && isCurrentYear){
+          checkSelectedOption(op);
+        }else if(!isCurrentYear){
+          checkSelectedOption(op);
+        }
+       
+      }else{
+        checkSelectedOption(op);
+      }
 
 
     }else{
@@ -585,7 +602,9 @@ yearChanger.forEach((yc, index)=>{
       const newYear = getSelectedYear();
 
       if(newYear!==currentYear){
+
         checkSelectedOption(option[0]);
+
       }else{
 
         const currentMonth = getCurrentMonth();
